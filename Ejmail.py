@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
-
+#hi
 # Lista de nombres y correos electrónicos
 my_dectionario = {
 "Mercedes":	"mcast386@xtec.cat",
