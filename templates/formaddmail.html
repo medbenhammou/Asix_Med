@@ -1,0 +1,22 @@
+<!-- nuestro formlario html de agregar usuario-email -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Usuario</title>
+</head>
+<body>
+    <h2>Agregar Usuario</h2>
+    <form method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <button type="submit">add</button>
+    </form>
+
+    <p><a href="{{ url_for('getmailform') }}">get mail</a></p>
+
+</body>
+</html>
