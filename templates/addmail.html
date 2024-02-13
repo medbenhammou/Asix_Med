@@ -3,20 +3,22 @@
 {% block title %}Agregar Usuario{% endblock %}
 
 {% block content %}
-    {% if nombre %}
+    {% if nom %}
         <h2>El usuario-Email añadido:</h2>
-        <p>Nombre: <b>{{ nombre }}</b>.</p>
-        <p>Email: <b>{{ email }}</b>.</p>
+        <p>Nombre: <b>{{ nom }}</b>.</p>
+        <p>Email: <b>{{ correu }}</b>.</p>
     {% else %}
         <h2>Agregar Usuario</h2>
-        <form method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" required>
-            <label for="email">Email:</label>
-            <input type="email" name="email" required>
+        <form method="post" action="{{ url_for('addmail') }}">
+            <label for="nom">Nombre:</label>
+            <input type="text" name="nom" required>
+            <label for="correu">Email:</label>
+            <input type="email" name="correu" required>
             <button type="submit">add</button>
         </form>
     {% endif %}
 
-    <div><a href="{{ url_for('getmail') }}">get mail</a></div>
-    <div><a href=
+{% endblock %}
+
+
+  

@@ -11,7 +11,7 @@ def inici():
 @app.route('/getmail', methods=['POST', 'GET'])
 def getmail():
     if request.method == 'POST':
-        nom = request.form['nombre']
+        nom = request.form['nom']
         nom = nom.capitalize()
         correu = mail_dict.getmaildict(nom)
         return render_template('getmail.html', nom=nom, correu=correu)
