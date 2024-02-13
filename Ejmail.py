@@ -1,3 +1,4 @@
+#Mohamed Ben Hammou
 from flask import Flask, request, render_template, redirect, url_for
 import mail_dict
 
@@ -10,12 +11,12 @@ def inici():
 @app.route('/getmail', methods=['POST', 'GET'])
 def getmail():
     if request.method == 'POST':
-        nom = request.form['nom']
+        nom = request.form['nombre']
         nom = nom.capitalize()
         correu = mail_dict.getmaildict(nom)
-        return render_template('resultgetmail.html', nom=nom, correu=correu)
+        return render_template('getmail.html', nom=nom, correu=correu)
     else:
-        return render_template('formgetmail.html')
+        return render_template('getmail.html')
 
 @app.route('/addmail', methods=['POST', 'GET'])
 def addmail():
@@ -27,9 +28,9 @@ def addmail():
         if 'modif' in request.form:
             modif = True
         result_msg = mail_dict.addmaildict(nom, correu, modif)
-        return render_template('resultaddmail.html', nom=nom, correu=correu, result_msg=result_msg)
+        return render_template('addmail.html', nom=nom, correu=correu, result_msg=result_msg)
     else:
-        return render_template('formaddmail.html')
+        return render_template('addmail.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

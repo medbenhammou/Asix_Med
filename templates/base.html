@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My App{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Ej.css') }}">
+</head>
+<body>
+    <header>
+        <h1><marquee direction="right">My App GET/ADD mail</marquee></h1>
+        
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('getmail') }}">get mail</a></li>
+            <li><a href="{{ url_for('addmail') }}">add mail</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; programing Med clase Asix2 13/02/2024</p>
+    </footer>
+</body>
+</html>

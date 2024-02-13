@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar Email{% endblock %}
+
+{% block content %}
+    {% if nombre %}
+        <h2>Resultado:</h2>
+        <p>Nombre: <b>{{ nom }}</b>.</p>
+        <p>Email: <b>{{ correu }}</b>.</p>
+    {% else %}
+        <h2>Buscar Email de un Usuario</h2>
+        <form method="post" action="{{ url_for('getmail') }}">
+            <label for="nom">Nombre:</label>
+            <input type="text" name="nom" required>
+            <button type="submit">Buscar</button>
+        </form>
+        
+        {% if mensaje %}
+            <p>{{ mensaje }}</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
