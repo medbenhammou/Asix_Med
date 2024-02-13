@@ -8,10 +8,10 @@ mydb = mysql.connector.connect(
     database="my_base_datos"
 )
 
-mycursor = mydb.cursor()
+# mycursor = mydb.cursor()
 
-mycursor.execute("SELECT * FROM nombre_email")
-myresult = mycursor.fetchall()
+# mycursor.execute("SELECT * FROM nombre_email")
+# myresult = mycursor.fetchall()
 
 NOTROBAT = "NOTROBAT"
 AFEGIT = "AFEGIT"
@@ -20,6 +20,9 @@ JAEXISTEIX = "JAEXISTEIX"
 
 #ditection de mail
 def getmaildict(nom):
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM nombre_email")
+    myresult = mycursor.fetchall()
     for x in myresult:
         if nom == x[0]:
             email = x[1]
@@ -31,7 +34,7 @@ def addmaildict(nom, correu, modif=False):
     if oldcorreu == NOTROBAT:
         sql = "INSERT INTO nombre_email (nombre, email) VALUES (%s, %s)"
         val = (nom, correu)
-
+        mycursor = mydb.cursor()
         mycursor.execute(sql, val)
         mydb.commit()
         return AFEGIT
