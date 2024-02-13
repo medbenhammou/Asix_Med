@@ -1,3 +1,4 @@
+#Mohamed Ben Hammou
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -17,6 +18,7 @@ AFEGIT = "AFEGIT"
 MODIFICAT = "MODIFICAT"
 JAEXISTEIX = "JAEXISTEIX"
 
+#ditection de mail
 def getmaildict(nom):
     for x in myresult:
         if nom == x[0]:
